@@ -1,0 +1,35 @@
+<h2 class="mb-4"><i class="bi bi-search me-1"></i> Pesquisar Receita</h2>
+
+<form action="/receita/pesquisa" method="POST" class="mb-4">
+  <div class="input-group">
+    <input
+      type="text"
+      name="termo_pesquisa"
+      class="form-control"
+      placeholder="Digite parte do título da receita"
+      value="{{termo_pesquisa}}"
+      autofocus
+      required
+    >
+    <button class="btn btn-primary" type="submit"><i class="bi bi-search me-1"></i> Pesquisar</button>
+  </div>
+</form>
+
+{{#if nenhuma}}
+  <div class="alert alert-warning mt-3 text-center">
+    Não há receitas a serem exibidas.
+  </div>
+{{/if}}
+
+{{#if resultado}}
+  <h4 class="mb-3"><i class="bi bi-list-stars me-1"></i> Resultados:</h4>
+
+  <ul class="list-group shadow">
+    {{#each resultado}}
+      <li class="list-group-item d-flex justify-content-between">
+        <a href="/receita/consulta/{{chave}}">{{titulo}}</a>
+        <span class="badge text-bg-warning">{{tempo}} min</span>
+      </li>
+    {{/each}}
+  </ul>
+{{/if}}

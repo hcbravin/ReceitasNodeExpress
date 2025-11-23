@@ -1,0 +1,37 @@
+{{#if receitas_qt}}
+
+<div class="row">
+    {{#each receitas}}
+    <div class="col-12 col-sm-6">
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title"><i class="bi bi-book me-1"></i> {{titulo}}</h5>
+                <p class="card-text"><i class="bi bi-clock me-1"></i> Tempo de preparo: <strong>{{tempo}}
+                        minutos</strong></p>
+            </div>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-4">
+                        <a href="/receita/deleta/{{chave}}" class="btn btn-danger btn-sm"><i class="bi bi-trash me-1"></i>
+                            Excluir</a>
+                    </div>
+                    <div class="col-8 text-end">
+                        <a href="/receita/altera/{{chave}}" class="btn btn-warning btn-sm"><i class="bi bi-pen me-1"></i>
+                            Alterar</a>
+                        <a href="/receita/consulta/{{chave}}" class="btn btn-primary btn-sm"><i class="bi bi-search me-1"></i>
+                            Consultar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>
+
+
+{{else}}
+<div class="alert alert-danger text-center">
+    <div class="mb-2"><strong>Nenhuma Receita foi criado ainda.</strong></div>
+    <a href="/receita/cria" class="btn btn-sm btn-danger"><i class="bi bi-journal-plus me-1"></i> Criar Receita</a>
+</div>
+{{/if}}
